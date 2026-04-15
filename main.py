@@ -7,7 +7,7 @@ class Item(BaseModel):
     text: str
 
 @app.post("/generate")
-def post_generate():
+def post_generate(item: Item):
     return {
         "status": "ok"
     }
