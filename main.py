@@ -8,6 +8,5 @@ class Item(BaseModel):
 
 @app.post("/generate")
 def post_generate(item: Item):
-    return {
-        "status": "ok"
-    }
+    item_data = item.model_dump()
+    return item_data
