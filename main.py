@@ -1,10 +1,12 @@
 from fastapi import FastAPI
+from pydantic import BaseModel
 
 app = FastAPI()
 
-@app.post("/generate")
-def post_generate():
+class Item(BaseModel):
+    text: str
 
-    return {
-        "status": "ok"
-    }
+@app.post("/generate")
+def post_generate(item: Item):
+    item_data = item.model_dump()
+    return item_data
