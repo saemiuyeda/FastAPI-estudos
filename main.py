@@ -18,7 +18,8 @@ def normalize_text(message: str):
     return processed_message
 
 def generate_response(message: str):
-    if message == "olá":
+    normalized_message = normalize_text(message)
+    if normalized_message == "ola":
         return "Olá! Como posso ajudar?"
     else:
         return "Não entendi, poderia repetir?"
